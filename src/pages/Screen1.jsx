@@ -75,17 +75,17 @@ function Screen1() {
                 src={`https://localhost:7154${imageAdUrl}`}
                 loading="lazy"
                 alt=""
-                className="w-full h-full object-fill"
+                className="w-full h-full object-cover"
               />
             </CardCover>
           </Card>
         </Box>
 
-        <div className="overflow-hidden h-16 bg-blue-900 dark:bg-gray-800 flex items-center rounded-lg shadow-lg p-6 mb-1">
+        <div className="overflow-hidden h-16 bg-gray-900 flex items-center rounded-lg shadow-lg p-6 mb-1">
           <marquee direction="right"
             behavior="scroll"
             truespeed="true"
-            className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+            className="text-xl md:text-2xl lg:text-4xl font-bold text-white">
             AARKAY TECHNO CONSULTANTS PVT. LTD.
           </marquee>
         </div>

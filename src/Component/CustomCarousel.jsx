@@ -25,38 +25,37 @@ const CustomCarousel = ({ images, interval = 3000 }) => {
         return () => clearTimeout(timeoutRef.current);
     }, [currentIndex, interval]);
 
+    // Stop the carousel if there are no images
+    if (images.length === 0) return null;
+
     return (
-        <div className="relative w-full h-64 overflow-hidden rounded-lg shadow-lg mt-1">
-            <div
-                className={`absolute inset-0 flex transition-transform duration-500 ease-in-out ${isTransitioning ? "transform translate-x-0" : ""
-                    }`}
-                style={{
-                    transform: `translateX(-${currentIndex * 100}%)`,
-                }}
-            >
-                {images.map((src, index) => (
-                    <img
-                        key={index}
-                        src={src}
-                        alt={`Slide ${index + 1}`}
-                        className="w-full h-full object-cover"
-                    />
-                ))}
-            </div>
+        <div className="relative w-full h-full overflow-hidden rounded-lg shadow-lg mt-1">
+            {images.map((src, index) => (
+                <img
+                    key={index}
+                    src={src}
+                    alt={`Slide ${index + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${currentIndex === index ? 'opacity-100' : 'opacity-0'}`}
+                />
+            ))}
             {/* Previous Button */}
-            <button
-                onClick={handlePrev}
-                className="absolute left-0 top-2/4 -translate-y-2/4 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full"
-            >
-                &#10094;
-            </button>
+            {/* {images.length > 1 && (
+                <button
+                    onClick={handlePrev}
+                    className="absolute left-0 top-2/4 -translate-y-2/4 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full"
+                >
+                    &#10094;
+                </button>
+            )} */}
             {/* Next Button */}
-            <button
-                onClick={handleNext}
-                className="absolute right-0 top-2/4 -translate-y-2/4 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full"
-            >
-                &#10095;
-            </button>
+            {/* {images.length > 1 && (
+                <button
+                    onClick={handleNext}
+                    className="absolute right-0 top-2/4 -translate-y-2/4 bg-black bg-opacity-50 text-white px-2 py-2 rounded-full"
+                >
+                    &#10095;
+                </button>
+            )} */}
         </div>
     );
 };

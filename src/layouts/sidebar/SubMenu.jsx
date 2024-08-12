@@ -22,11 +22,11 @@ const SubMenu = ({ data }) => {
         animate={
           subMenuOpen
             ? {
-                height: "fit-content",
-              }
+              height: "fit-content",
+            }
             : {
-                height: 0,
-              }
+              height: 0,
+            }
         }
         className="flex h-0 flex-col pl-14 text-[0.8rem] font-normal overflow-hidden"
       >

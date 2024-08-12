@@ -4,6 +4,14 @@ import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 import CssBaseline from '@mui/joy/CssBaseline';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { CiVideoOn } from "react-icons/ci";
+import AspectRatio from '@mui/joy/AspectRatio';
+import Card from '@mui/joy/Card';
+import CardContent from '@mui/joy/CardContent';
+import CardOverflow from '@mui/joy/CardOverflow';
+import Typography from '@mui/joy/Typography';
 
 function AdControlPanel() {
   const [adFile, setAdFile] = useState(null);
@@ -16,6 +24,9 @@ function AdControlPanel() {
   React.useEffect(() => {
     setMode('light');
   }, [setMode]);
+
+
+
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -57,14 +68,17 @@ function AdControlPanel() {
         }
       );
       console.log("Ad uploaded successfully:", response.data);
+      toast.success("Ad upload Success.");
     } catch (error) {
       console.error("Ad upload failed:", error);
+      toast.error("Ad upload failed.");
     }
   };
 
   return (
     <CssVarsProvider defaultMode="light">
       <div className="w-full">
+        <ToastContainer />
         <div className="bg-blue-600 p-4 text-left rounded-lg shadow-lg text-white text-xl mx-1 mt-2">
           Upload Ad
         </div>
@@ -108,7 +122,38 @@ function AdControlPanel() {
             Upload
           </button>
         </div>
+
+        <Card orientation="horizontal" variant="outlined" sx={{ width: 260 }} className="mx-1 mt-2 shadow-lg">
+          <CardOverflow>
+            <AspectRatio ratio="1" sx={{ width: 90 }}>
+              <CiVideoOn />
+            </AspectRatio>
+          </CardOverflow>
+          <CardContent>
+            <Typography fontWeight="md" textColor="success.plainColor">
+              11903842.mp4
+            </Typography>
+          </CardContent>
+          <CardOverflow
+            variant="soft"
+            color="primary"
+            sx={{
+              px: 0.2,
+              writingMode: 'vertical-rl',
+              justifyContent: 'center',
+              fontSize: 'xs',
+              fontWeight: 'xl',
+              letterSpacing: '1px',
+              textTransform: 'uppercase',
+              borderLeft: '1px solid',
+              borderColor: 'divider',
+            }}
+          >
+            Video
+          </CardOverflow>
+        </Card>
       </div>
+
     </CssVarsProvider>
   );
 }

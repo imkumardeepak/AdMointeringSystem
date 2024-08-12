@@ -25,148 +25,78 @@ const AllApps = () => {
         Dashboard
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="bg-white rounded-lg shadow-lg p-6 mx-1 mt-2" style={{ width: '99%' }}>
-          <thead>
-            <tr>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">#</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Name</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Description</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item, index) => (
-              <tr key={item.id} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b border-gray-200">{index + 1}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{item.name}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{item.description}</td>
-                <td className="py-2 px-4 border-b border-gray-200">
-                  <button
-                    onClick={() => handleEdit(item.id)}
-                    className="text-blue-600 hover:text-blue-800 mr-4"
-                  >
-                    <FaEdit />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(item.id)}
-                    className="text-red-600 hover:text-red-800"
-                  >
-                    <FaTrash />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+
 
       <div className="overflow-x-auto">
-        <table className="bg-white rounded-lg shadow-lg p-6 mx-1 mt-2" style={{ width: '99%' }}>
-          <thead>
-            <tr>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">#</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Name</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Description</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item, index) => (
-              <tr key={item.id} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b border-gray-200">{index + 1}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{item.name}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{item.description}</td>
-                <td className="py-2 px-4 border-b border-gray-200">
-                  <button
-                    onClick={() => handleEdit(item.id)}
-                    className="text-blue-600 hover:text-blue-800 mr-4"
-                  >
-                    <FaEdit />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(item.id)}
-                    className="text-red-600 hover:text-red-800"
-                  >
-                    <FaTrash />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+        <div class="flex flex-col">
+          <div class="overflow-x-auto">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-2 lg:px-2">
+              <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
-      <div className="overflow-x-auto">
-        <table className="bg-white rounded-lg shadow-lg p-6 mx-1 mt-2" style={{ width: '99%' }}>
-          <thead>
-            <tr>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">#</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Name</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Description</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item, index) => (
-              <tr key={item.id} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b border-gray-200">{index + 1}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{item.name}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{item.description}</td>
-                <td className="py-2 px-4 border-b border-gray-200">
-                  <button
-                    onClick={() => handleEdit(item.id)}
-                    className="text-blue-600 hover:text-blue-800 mr-4"
-                  >
-                    <FaEdit />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(item.id)}
-                    className="text-red-600 hover:text-red-800"
-                  >
-                    <FaTrash />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+                <br />
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Name
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Title
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Status
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Role
+                      </th>
+                      <th scope="col" class="relative px-6 py-3">
+                        <span class="sr-only">Edit</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img class="h-10 w-10 rounded-full" src="https://via.placeholder.com/150" alt="" />
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              Lindsay Walton
+                            </div>
+                            <div class="text-sm text-gray-500">
+                              lindsay.walton@example.com
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">Front-end Developer</div>
+                        <div class="text-sm text-gray-500">Optimization</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          Active
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        Member
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                      </td>
+                    </tr>
 
-      <div className="overflow-x-auto">
-        <table className="bg-white rounded-lg shadow-lg p-6 mx-1 mt-2" style={{ width: '99%' }}>
-          <thead>
-            <tr>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">#</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Name</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Description</th>
-              <th className="py-2 px-4 border-b border-gray-200 text-left">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item, index) => (
-              <tr key={item.id} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b border-gray-200">{index + 1}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{item.name}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{item.description}</td>
-                <td className="py-2 px-4 border-b border-gray-200">
-                  <button
-                    onClick={() => handleEdit(item.id)}
-                    className="text-blue-600 hover:text-blue-800 mr-4"
-                  >
-                    <FaEdit />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(item.id)}
-                    className="text-red-600 hover:text-red-800"
-                  >
-                    <FaTrash />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
