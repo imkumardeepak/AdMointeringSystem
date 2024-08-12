@@ -16,8 +16,6 @@ function AdDisplay() {
     "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
     "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
     "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
-    "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
   ];
 
 
@@ -45,9 +43,9 @@ function AdDisplay() {
 
   return (
     <>
-      <Box
+      {/* <Box
         component="ul"
-        sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', p: 0, m: 0, mt: 1 }}
+        sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', p: 0, m: 0, mt: 1 }}
       >
         <Card component="li" sx={{ minWidth: 300, flexGrow: 1, boxShadow: 5, height: 300 }}>
           <CardCover>
@@ -58,16 +56,6 @@ function AdDisplay() {
               className="w-full h-full object-fill"
             />
           </CardCover>
-          <CardContent>
-            <Typography
-              level="body-lg"
-              fontWeight="lg"
-              textColor="#fff"
-              mt={{ xs: 12, sm: 18 }}
-            >
-              Image
-            </Typography>
-          </CardContent>
         </Card>
 
         <Card component="li" sx={{ minWidth: 300, flexGrow: 1, boxShadow: 5, height: 300 }}>
@@ -83,24 +71,14 @@ function AdDisplay() {
               />
             </video>
           </CardCover>
-          <CardContent>
-            <Typography
-              level="body-lg"
-              fontWeight="lg"
-              textColor="#fff"
-              mt={{ xs: 12, sm: 18 }}
-            >
-              Video
-            </Typography>
-          </CardContent>
         </Card>
-      </Box>
+      </Box> */}
       <CustomCarousel images={images} interval={3000} />
-      <div className="overflow-hidden h-16 bg-blue-900 flex items-center rounded-lg shadow-lg p-6  mt-2">
+      <div className="overflow-hidden h-16 bg-gray-900 flex items-center rounded-lg shadow-lg p-6  mt-1 mb-1">
         <marquee direction="right"
           behavior="scroll"
           truespeed="true"
-          className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+          className="text-xl md:text-2xl lg:text-4xl font-bold text-white">
           AARKAY TECHNO CONSULTANTS PVT. LTD.
         </marquee>
       </div>

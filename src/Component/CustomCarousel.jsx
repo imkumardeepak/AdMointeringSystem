@@ -29,7 +29,7 @@ const CustomCarousel = ({ images, interval = 3000 }) => {
     if (images.length === 0) return null;
 
     return (
-        <div className="relative w-full h-full overflow-hidden rounded-lg shadow-lg mt-1">
+        <div className="relative w-full h-96 overflow-hidden rounded-lg shadow-lg mt-1">
             {images.map((src, index) => (
                 <img
                     key={index}
