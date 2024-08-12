@@ -7,11 +7,6 @@ import CssBaseline from '@mui/joy/CssBaseline';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CiVideoOn } from "react-icons/ci";
-import AspectRatio from '@mui/joy/AspectRatio';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import CardOverflow from '@mui/joy/CardOverflow';
-import Typography from '@mui/joy/Typography';
 
 function AdControlPanel() {
   const [adFile, setAdFile] = useState(null);
@@ -24,9 +19,6 @@ function AdControlPanel() {
   React.useEffect(() => {
     setMode('light');
   }, [setMode]);
-
-
-
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -44,12 +36,38 @@ function AdControlPanel() {
   };
 
   const handleFileChange = (e) => {
-    setAdFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    const acceptedTypes = getAcceptedFileTypes();
+
+    if (selectedFile && !selectedFile.type.match(acceptedTypes)) {
+      toast.error(`Invalid file type. Please select a valid ${adType}.`);
+      setAdFile(null);
+      fileInputRef.current.value = ''; // Clear the file input
+    } else {
+      setAdFile(selectedFile);
+    }
   };
 
   const handleChange = (event, newValue) => {
     setAdType(newValue);
+    setAdFile(null); // Reset the file input when ad type changes
+    fileInputRef.current.value = ''; // Clear the file input
     console.log(newValue);
+  };
+
+  const getAcceptedFileTypes = () => {
+    switch (adType) {
+      case 'image':
+        return 'image/*';
+      case 'video':
+        return 'video/*';
+      case 'pdf':
+        return 'application/pdf';
+      case 'pptx':
+        return 'application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation';
+      default:
+        return '';
+    }
   };
 
   const handleAdUpload = async () => {
@@ -68,7 +86,7 @@ function AdControlPanel() {
         }
       );
       console.log("Ad uploaded successfully:", response.data);
-      toast.success("Ad upload Success.");
+      toast.success("Ad uploaded successfully.");
     } catch (error) {
       console.error("Ad upload failed:", error);
       toast.error("Ad upload failed.");
@@ -84,6 +102,17 @@ function AdControlPanel() {
         </div>
 
         <div className="bg-white rounded-lg shadow-lg p-6 mx-1 mt-2">
+          <Select
+            value={adType}
+            onChange={handleChange}
+            color="neutral"
+            sx={{ minWidth: 200, mb: 2 }}
+          >
+            <Option value="image">Image</Option>
+            <Option value="video">Video</Option>
+            <Option value="pdf">Pdf</Option>
+            <Option value="pptx">Pptx</Option>
+          </Select>
           <div
             className={`border-2 border-dashed rounded-lg p-6 text-center mb-4 cursor-pointer ${dragging ? 'border-blue-600 bg-blue-50' : 'border-gray-300 bg-gray-50'
               }`}
@@ -100,20 +129,11 @@ function AdControlPanel() {
             <input
               type="file"
               ref={fileInputRef}
+              accept={getAcceptedFileTypes()} // Set accepted file types based on adType
               onChange={handleFileChange}
               className="hidden"
             />
           </div>
-
-          <Select
-            value={adType}
-            onChange={handleChange}
-            color="neutral"
-            sx={{ minWidth: 200, mb: 2 }}
-          >
-            <Option value="image">Image</Option>
-            <Option value="video">Video</Option>
-          </Select>
 
           <button
             onClick={handleAdUpload}
@@ -122,38 +142,7 @@ function AdControlPanel() {
             Upload
           </button>
         </div>
-
-        <Card orientation="horizontal" variant="outlined" sx={{ width: 260 }} className="mx-1 mt-2 shadow-lg">
-          <CardOverflow>
-            <AspectRatio ratio="1" sx={{ width: 90 }}>
-              <CiVideoOn />
-            </AspectRatio>
-          </CardOverflow>
-          <CardContent>
-            <Typography fontWeight="md" textColor="success.plainColor">
-              11903842.mp4
-            </Typography>
-          </CardContent>
-          <CardOverflow
-            variant="soft"
-            color="primary"
-            sx={{
-              px: 0.2,
-              writingMode: 'vertical-rl',
-              justifyContent: 'center',
-              fontSize: 'xs',
-              fontWeight: 'xl',
-              letterSpacing: '1px',
-              textTransform: 'uppercase',
-              borderLeft: '1px solid',
-              borderColor: 'divider',
-            }}
-          >
-            Video
-          </CardOverflow>
-        </Card>
       </div>
-
     </CssVarsProvider>
   );
 }

@@ -15,7 +15,6 @@ import { CssVarsProvider } from '@mui/joy/styles';
 function Screen1() {
   const [imageAdUrl, setImageAdUrl] = useState(null);
   const [videoAdUrl, setVideoAdUrl] = useState(null);
-  const [pdfAdUrl, setpdfAdUrl] = useState(null);
   const { setMode } = useColorScheme();
   // Set the mode to dark by default
   React.useEffect(() => {
@@ -28,7 +27,6 @@ function Screen1() {
         const response = await axios.get("https://localhost:7154/api/ad/latest");
         setImageAdUrl(response.data.imageAdUrl);
         setVideoAdUrl(response.data.videoAdUrl);
-        setpdfAdUrl(response.data.pdfUrl);
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching the latest ads:", error);
