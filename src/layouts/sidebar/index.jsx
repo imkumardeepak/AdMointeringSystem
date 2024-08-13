@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { IoIosArrowBack } from "react-icons/io";
 import { SlSettings } from "react-icons/sl";
 import { AiOutlineAppstore } from "react-icons/ai";
-import { BsPerson } from "react-icons/bs";
+import { AiOutlineFileAdd } from "react-icons/ai";
 import { HiOutlineDatabase } from "react-icons/hi";
 import { TbReportAnalytics } from "react-icons/tb";
 import { RiBuilding3Line } from "react-icons/ri";
@@ -114,8 +114,8 @@ const Sidebar = () => {
             </li>
             <li>
               <NavLink to={"/adddisplay"} className="link">
-                <BsPerson size={23} className="min-w-max" />
-                Add Display
+                <AiOutlineFileAdd size={23} className="min-w-max" />
+                Add File
               </NavLink>
             </li>
             <li>
