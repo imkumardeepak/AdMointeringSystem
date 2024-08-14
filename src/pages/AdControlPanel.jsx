@@ -18,6 +18,8 @@ import AttachedRoundedIcon from '@mui/icons-material/AttachFileRounded';
 import DialogActions from '@mui/joy/DialogActions';
 import DeleteForever from '@mui/icons-material/DeleteForever';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
+import { DataGrid } from '@mui/x-data-grid';
+
 function AdControlPanel() {
   const [adFile, setAdFile] = useState(null);
   const [adType, setAdType] = useState('image'); // Default value set to 'image'
@@ -246,39 +248,11 @@ function AdControlPanel() {
                     ))}
                   </tbody>
                 </table>
-                {/* Pagination */}
-                <div className="py-2 flex justify-between">
-                  <button
-                    onClick={prevPage}
-                    className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700"
-                  >
-                    Previous
-                  </button>
-                  <div>
-                    {Array.from({ length: totalPages }, (_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => paginate(i + 1)}
-                        className={`px-4 py-2 mx-1 ${currentPage === i + 1
-                          ? "bg-blue-700 text-white"
-                          : "bg-white text-gray-700 border border-gray-300"
-                          } font-bold rounded-lg shadow-lg hover:bg-blue-600 hover:text-white`}
-                      >
-                        {i + 1}
-                      </button>
-                    ))}
-                  </div>
-                  <button
-                    onClick={nextPage}
-                    className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700"
-                  >
-                    Next
-                  </button>
-                </div>
               </div>
             </div>
           </div>
         </div>
+
 
 
         {/* Modal for displaying selected file */}
